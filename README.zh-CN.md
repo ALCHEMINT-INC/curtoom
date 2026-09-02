@@ -1,4 +1,4 @@
-<p align="center"><a href="https://alchemint.xyz"><img src="assets/banner.png" alt="cutroom — ffmpeg skills for coding agents, by Alchemint" width="960"></a></p>
+<p align="center"><a href="https://alchemint.xyz"><img src="assets/cutroom-banner.png" alt="cutroom — ffmpeg skills for coding agents, by Alchemint" width="960"></a></p>
 
 <p align="center"><b>基于 ffmpeg 的 agent skill：压码率、接片段、验播放——按视频实际上线的方式来做。</b></p>
 

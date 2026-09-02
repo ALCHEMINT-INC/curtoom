@@ -1,4 +1,4 @@
-<p align="center"><a href="https://alchemint.xyz"><img src="assets/banner.png" alt="cutroom — ffmpeg skills for coding agents, by Alchemint" width="960"></a></p>
+<p align="center"><a href="https://alchemint.xyz"><img src="assets/cutroom-banner.png" alt="cutroom — ffmpeg skills for coding agents, by Alchemint" width="960"></a></p>
 
 <p align="center"><b>ffmpeg ベースのコーディングエージェント向けスキル — エンコード、つなぎ合わせ、再生検証を、動画が実際に世に出るやり方で。</b></p>
 
