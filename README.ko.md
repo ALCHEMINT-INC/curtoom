@@ -1,4 +1,4 @@
-<p align="center"><a href="https://alchemint.xyz"><img src="assets/cutroom-banner.png" alt="cutroom — ffmpeg skills for coding agents, by Alchemint" width="960"></a></p>
+<p align="center"><a href="https://alchemint.xyz"><img src="assets/cutroom-ffmpeg-skills-for-claude-code-and-codex-by-alchemint.png" alt="cutroom — ffmpeg skills for coding agents, by Alchemint" width="960"></a></p>
 
 <p align="center"><b>ffmpeg 기반 코딩 에이전트 스킬 — 인코딩, 이어 붙이기, 재생 검증을 영상이 실제로 배포되는 방식 그대로.</b></p>
 
