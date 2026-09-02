@@ -1,6 +1,8 @@
-# ffmpeg-skills
+# cutroom
 
-基於 ffmpeg 的 agent skill，Claude Code 與 Codex 共用。每個 skill 一個目錄：`skills/<name>/SKILL.md`＋必要的腳本。專案專屬的設定（網址、bucket、hash 規則）不放這裡，留在各專案的 `CLAUDE.md`／`AGENTS.md`。
+ffmpeg-based skills for coding agents — encode, stitch, and verify video the way it actually ships.
+
+基於 ffmpeg 的 agent skill（Claude Code／Codex 共用）：壓碼率、接片段、驗播放——每一條規則都是實際撞出來的。每個 skill 一個目錄：`skills/<name>/SKILL.md`＋必要的腳本。專案專屬的設定（網址、bucket、hash 規則）不放這裡，留在各專案的 `CLAUDE.md`／`AGENTS.md`。
 
 | skill | 用途 |
 |---|---|
@@ -11,9 +13,9 @@
 ## 安裝（每台機器一次）
 
 ```sh
-git clone <this repo> ~/Documents/ffmpeg-skills
+git clone https://github.com/ALCHEMINT-INC/curtoom.git ~/Documents/cutroom
 mkdir -p ~/.claude/skills ~/.agents/skills
-for s in ~/Documents/ffmpeg-skills/skills/*/; do
+for s in ~/Documents/cutroom/skills/*/; do
   n=$(basename "$s"); ln -sfn "$s" ~/.claude/skills/"$n"; ln -sfn "$s" ~/.agents/skills/"$n"
 done
 ```
