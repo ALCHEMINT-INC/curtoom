@@ -24,9 +24,57 @@ One line, both agents: skills land in `~/.agents/skills` (Codex) and are symlink
 
 ## Skills
 
-One cat, one glowing paper boat, three skills. The hero clip on our site is a cat following a paper boat down a night street, generated in three takes — each take started from the last frame of the one before it. Everything in this repo was learned on that one piece of footage over two evenings, in this order.
+### ENCODE · [`encoding-hero-video-for-mobile`](skills/encoding-hero-video-for-mobile)
+
+**Problem** — A hero clip that plays perfectly on a laptop stalls on a phone: 1792×3184 at CRF 20 came out at 11.7 Mbps / 69 MB, and a ~7.5 Mbps mobile link fed it one second of video per second of buffering.
+
+**When** — Any 9:16 background / hero clip bound for phones; any phone clip that already stutters.
+
+**What** — One command. Remux only if the master already fits (H.264, ≤ 1440×2560, ≤ 6 Mbps); otherwise 1440×2560, CRF 23, preset slow, audio copied. Prints per-second bitrate and `PASS` or `FAIL: rerun with 1920`.
+
+**Why CRF 23** — CRF pins perceived quality, not bitrate: CRF 20 is 6 Mbps on a calm shot and 8.6 on high motion — and 8.6 stalls. CRF 23 lands at 5.7 and is indistinguishable on a phone-sized background. Nothing above 1440×2560 is kept; phone screens top out at 1290×2796.
+
+**Payoff** — 69 MB → 34.5 MB, 11.7 → 5.7 Mbps, plays through on Fast 4G with the next clip preloading.
+
+<sub>Verified 2026-09-03 · ffmpeg 8.0 · macOS 26</sub>
+
+### VERIFY · [`verifying-hero-video-on-mobile`](skills/verifying-hero-video-on-mobile)
+
+**Problem** — A frozen hero on a phone, and no way to tell *starved* (bitrate above bandwidth) from *blocked* (autoplay policy, Low Power Mode, a stale tab). Desktop Chrome playing it proves nothing.
+
+**Difference from ENCODE** — Touches no file. ENCODE makes the clip; VERIFY answers "will the page play it on a phone, and if not, why". Independent — use either alone.
+
+**When** — Optional. Tier 0 always (one minute); tier 1 on a stutter report or for proof before shipping without a phone; tier 2 on "no autoplay" / "a play button" — and the first move there is closing the tab and reopening.
+
+**What** — Tier 0: bitrate ceiling, `curl --limit-rate` screen, ETag = MD5 and faststart from the first 1.5 MB, upload-before-push, the CDN range-cache trap. Tier 1: Chrome DevTools throttle harness with the clip picker forced via `Math.random`. Tier 2: iOS Simulator cold-load and app-switch screenshot diffs.
+
+**Payoff** — Page bug versus device state, separated in about five minutes with evidence.
+
+<sub>Verified 2026-09-03 · Chrome 140 · iOS 26 Simulator</sub>
 
 ### STITCH · [`video-clip-stitching`](skills/video-clip-stitching)
+
+**Problem** — Chained generation — last frame of take N becomes the first frame of take N+1 — leaves every continuation with about half a second of near-still "dead water". Plain `concat` reads as "stuck" or "repeated"; no frame repeats, the motion breaks. Container frame rates also lie.
+
+**When** — Any 01 / 02 / 03 series from Dreamina, Runway, Higgsfield, Seedance and the like; any "stuck / repeated / not smooth / overlap" complaint; QC of generated footage.
+
+**What** — `clip_qc.py` reports three frame rates and catches padded frames by phase structure (7.5× odd/even signature vs 1.1× real), stalled frames, preview-vs-HD mix-ups. `seam_probe.py` classifies each seam — different shot → hard cut; composition continuation → cut the dead water and dissolve; true overlap → cut the re-enacted part. `join_clips.sh` encodes in one pass with the `xfade` offset computed and three ffmpeg landmines pre-defused.
+
+**Why a ratio** — The cut point is where motion after the seam ÷ motion before it approaches 1.0 (below 0.75 is dead water, above 1.4 a lurch). A curve-only reading once said cut 54 frames; the answer was 0.
+
+**Payoff** — Seams that survive playback — see below.
+
+<sub>Verified 2026-09-02 · ffmpeg 8.0 · macOS 26</sub>
+
+## Stitching, before and after
+
+<p align="center"><img src="assets/video-clip-stitching-seam-before-after-raw-join-vs-cut-30-frames.jpg" alt="Seam 02 to 03 of the cat mobile clip: raw join versus the final cut, six frames each across one second, with the per-frame motion curve below" width="960"></p>
+
+Same footage, same seam, one second each. **Top row — raw join:** the last frame of take 02, then take 03 at +0.00, +0.25, +0.50, +0.75 and +1.00 s. The rainbow star is still fully open at +0.50 s; it only begins to fold after that. Nothing is duplicated — the motion simply stops for half a second, which the eye reads as "stuck" or "repeated". **Bottom row — final cut:** the first 30 frames of take 03 removed and a 0.1 s dissolve across the join. The fold starts the moment the seam passes; by +1.00 s the boat is already lifting off the water.
+
+**The curve** is per-frame motion (mean absolute difference, 5-frame moving average) from one second before the seam to two seconds after. Before the seam the two lines are the same footage. After it, the raw join drops into the shaded band — half a second at roughly half the motion of the frames before the seam (ratio 0.54) — while the final cut climbs immediately (ratio 1.45). That ratio, after ÷ before approaching 1, is the rule `seam_probe.py` uses to pick the cut point.
+
+## STITCH · [`video-clip-stitching`](skills/video-clip-stitching)
 
 **How it started** — Evening of 2026-09-01. The ask, more or less verbatim: "There's cat mobile 01, 02, 03 in Downloads. The first frames of 03 look like they overlap the tail of 02 — figure out how to handle that, then join 1-2-3 into one video." Fourteen minutes later a finished file came back, and the reply was: "Wait, I thought you could do this with ffmpeg? …huh, that looks pretty good." It had been done entirely in ffmpeg, no editor. That surprise is the reason this skill exists — the very next question was "is there a skill to be made out of this?"
 
@@ -123,6 +171,16 @@ One directory per skill — `skills/<name>/SKILL.md` plus the scripts it needs. 
 ## Why these rules
 
 Every rule was hit in production, not derived. The numbers — bitrate ceilings, thresholds, H.264 level limits — come from measurements recorded in each `SKILL.md`.
+
+## How these came to be
+
+None of this was planned. The hero clip on our site is a cat following a glowing paper boat down a night street, generated in three takes, each started from the last frame of the one before. Over two evenings that one piece of footage produced all three skills, in this order.
+
+**STITCH, evening of 2026-09-01.** The ask was roughly: "There's cat mobile 01, 02, 03 in Downloads. The first frames of 03 look like they overlap the tail of 02 — figure out how to handle that, then join 1-2-3 into one." Fourteen minutes later a finished file came back, and the reply was "Wait, I thought you could do this with ffmpeg? …huh, that looks pretty good." It had been done entirely in ffmpeg. The next question was whether there was a skill in it. Along the way: a frame-rate scare ("I thought the originals were 60 — why did it come out 30?" — CapCut was showing its own 30 fps timeline; the file was true 60), take 02 turning out to have 13.4 % stalled frames, the desktop 03 in Downloads turning out to be the 854×480 preview, and one confident recommendation to cut 54 frames that should have been 0.
+
+**ENCODE, the next day.** The stitched clip — 1792×3184, 19 Mbps — went into the site's mobile rotation at native size; the commit said the resolution standard was a floor. CRF 20 made it 11.7 Mbps / 69 MB. The morning after: "It used to autoplay on mobile. Now it just sits there. Is it something on our side or is it my phone?" Then, once the cause was clear: "So I have to re-encode everything on mobile? …no wait, you're the one re-encoding, right?" One file. That exchange is the spec: one command, no decisions.
+
+**VERIFY, the same morning.** The fix went live at 04:47. Then: "still doesn't autoplay on my phone" — "I see a play button" — "mobile Chrome app" — "Safari is fine" — "in Chrome even tapping play does nothing…" — "never mind" — "it suddenly works." Twenty minutes; the bug was a Chrome tab still running yesterday's page. Meanwhile an iOS Simulator had already cold-loaded the site, switched apps and back, and proven the page autoplayed and resumed. Nobody "fixed" the visibility logic that was never broken, and the checklist got its two most useful lines: ask them to close the tab first, and never overwrite a live clip under the same name.
 
 <br>
 
