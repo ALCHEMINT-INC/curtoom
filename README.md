@@ -1,16 +1,18 @@
+English | [繁體中文](README.zh-TW.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja.md)
+
 # cutroom
 
 ffmpeg-based skills for coding agents — encode, stitch, and verify video the way it actually ships.
 
-基於 ffmpeg 的 agent skill（Claude Code／Codex 共用）：壓碼率、接片段、驗播放——每一條規則都是實際撞出來的。每個 skill 一個目錄：`skills/<name>/SKILL.md`＋必要的腳本。專案專屬的設定（網址、bucket、hash 規則）不放這裡，留在各專案的 `CLAUDE.md`／`AGENTS.md`。
+Shared by Claude Code and Codex. One directory per skill: `skills/<name>/SKILL.md` plus the scripts it needs. Project-specific settings (URLs, buckets, CSP hash rules) stay in each project's `CLAUDE.md` / `AGENTS.md`, not here. Skill bodies are currently written in Traditional Chinese; the scripts and their `--help`/usage lines are English.
 
-| skill | 用途 |
+| skill | what it does |
 |---|---|
-| `encoding-hero-video-for-mobile` | 母帶 → 手機 9:16 hero 片，一條指令：自動 remux／重壓、量碼率、給 PASS／FAIL |
-| `verifying-hero-video-on-mobile` | 背景／hero 影片在手機上「卡住／沒自動播放／出現 ▶」的判讀與驗證：碼率門檻、throttle 測試台、iOS 模擬器、上傳與 CDN 快取 |
-| `video-clip-stitching` | 把多段 AI 生成的片段接成一支，找切點、診斷接縫、驗收素材規格 |
+| `encoding-hero-video-for-mobile` | Master → phone-sized 9:16 hero clip in one command: remux or re-encode automatically, measure per-second bitrate, print PASS / FAIL |
+| `verifying-hero-video-on-mobile` | Diagnose and prove background/hero video on phones — "stutters", "won't autoplay", "shows ▶": bitrate ceiling, Chrome throttle harness, iOS Simulator, upload and CDN-cache checks |
+| `video-clip-stitching` | Stitch AI-generated clips into one: find cut points, diagnose seams, check generated footage specs |
 
-## 安裝（每台機器一次）
+## Install (once per machine)
 
 ```sh
 git clone https://github.com/ALCHEMINT-INC/curtoom.git ~/Documents/cutroom
@@ -20,4 +22,8 @@ for s in ~/Documents/cutroom/skills/*/; do
 done
 ```
 
-Claude Code 讀 `~/.claude/skills`，Codex 讀 `~/.agents/skills`；兩邊都是 symlink，改這裡即生效。
+Claude Code reads `~/.claude/skills`, Codex reads `~/.agents/skills`. Both are symlinks, so edits here take effect immediately.
+
+## Why these rules
+
+Every rule in these skills was hit in production, not derived. The numbers (bitrate ceilings, thresholds, level limits) come from measurements recorded in each `SKILL.md`.
