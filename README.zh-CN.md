@@ -12,17 +12,13 @@ Claude Code 与 Codex 共用。每个 skill 一个目录：`skills/<name>/SKILL.
 | `verifying-hero-video-on-mobile` | 背景／hero 视频在手机上「卡住」「不自动播放」「出现 ▶」的判读与验证：码率门槛、Chrome 限速测试台、iOS 模拟器、上传与 CDN 缓存检查 |
 | `video-clip-stitching` | 把多段 AI 生成的片段接成一支：找切点、诊断接缝、验收素材规格 |
 
-## 安装（每台机器一次）
+## 安装
 
 ```sh
-git clone https://github.com/ALCHEMINT-INC/curtoom.git ~/Documents/cutroom
-mkdir -p ~/.claude/skills ~/.agents/skills
-for s in ~/Documents/cutroom/skills/*/; do
-  n=$(basename "$s"); ln -sfn "$s" ~/.claude/skills/"$n"; ln -sfn "$s" ~/.agents/skills/"$n"
-done
+npx skills add ALCHEMINT-INC/curtoom -g -a claude-code -a codex -y
 ```
 
-Claude Code 读 `~/.claude/skills`，Codex 读 `~/.agents/skills`；两边都是 symlink，改这里即生效。
+一行装好两边：skill 落在 `~/.agents/skills`（Codex 读），并 symlink 到 `~/.claude/skills`（Claude Code 读）。只装一边就去掉另一个 `-a`；之后 `npx skills update` 更新。不用 `npx` 的话，clone 下来把 `skills/<name>` symlink 到那两个目录即可。
 
 ## 为什么是这些规则
 

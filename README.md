@@ -12,17 +12,13 @@ Shared by Claude Code and Codex. One directory per skill: `skills/<name>/SKILL.m
 | `verifying-hero-video-on-mobile` | Diagnose and prove background/hero video on phones — "stutters", "won't autoplay", "shows ▶": bitrate ceiling, Chrome throttle harness, iOS Simulator, upload and CDN-cache checks |
 | `video-clip-stitching` | Stitch AI-generated clips into one: find cut points, diagnose seams, check generated footage specs |
 
-## Install (once per machine)
+## Install
 
 ```sh
-git clone https://github.com/ALCHEMINT-INC/curtoom.git ~/Documents/cutroom
-mkdir -p ~/.claude/skills ~/.agents/skills
-for s in ~/Documents/cutroom/skills/*/; do
-  n=$(basename "$s"); ln -sfn "$s" ~/.claude/skills/"$n"; ln -sfn "$s" ~/.agents/skills/"$n"
-done
+npx skills add ALCHEMINT-INC/curtoom -g -a claude-code -a codex -y
 ```
 
-Claude Code reads `~/.claude/skills`, Codex reads `~/.agents/skills`. Both are symlinks, so edits here take effect immediately.
+One line for both agents: skills land in `~/.agents/skills` (Codex) and are symlinked into `~/.claude/skills` (Claude Code). Drop an `-a` to install for one agent only; run `npx skills update` to pull new versions. No `npx`? Clone the repo and symlink `skills/<name>` into those two directories yourself.
 
 ## Why these rules
 

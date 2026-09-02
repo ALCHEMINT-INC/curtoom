@@ -12,17 +12,13 @@ Claude Code と Codex で共用。スキルごとに 1 ディレクトリ：`ski
 | `verifying-hero-video-on-mobile` | 背景／ヒーロー動画がスマホで「カクつく」「自動再生しない」「▶ が出る」ときの切り分けと検証：ビットレート上限、Chrome スロットリング環境、iOS シミュレータ、アップロードと CDN キャッシュの確認 |
 | `video-clip-stitching` | AI 生成クリップを 1 本につなぐ：カット点の探索、つなぎ目の診断、生成素材の仕様チェック |
 
-## インストール（マシンごとに 1 回）
+## インストール
 
 ```sh
-git clone https://github.com/ALCHEMINT-INC/curtoom.git ~/Documents/cutroom
-mkdir -p ~/.claude/skills ~/.agents/skills
-for s in ~/Documents/cutroom/skills/*/; do
-  n=$(basename "$s"); ln -sfn "$s" ~/.claude/skills/"$n"; ln -sfn "$s" ~/.agents/skills/"$n"
-done
+npx skills add ALCHEMINT-INC/curtoom -g -a claude-code -a codex -y
 ```
 
-Claude Code は `~/.claude/skills`、Codex は `~/.agents/skills` を読みます。どちらもシンボリックリンクなので、ここを編集すればすぐ反映されます。
+この 1 行で両方に入ります：スキルは `~/.agents/skills`（Codex が読む）に置かれ、`~/.claude/skills`（Claude Code が読む）へシンボリックリンクされます。片方だけなら `-a` を 1 つ外してください。更新は `npx skills update`。`npx` を使わない場合は、clone して `skills/<name>` をその 2 つのディレクトリへリンクしてください。
 
 ## なぜこのルールなのか
 
