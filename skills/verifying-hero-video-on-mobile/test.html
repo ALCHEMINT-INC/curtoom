@@ -1,0 +1,17 @@
+<!doctype html><meta name="viewport" content="width=device-width, initial-scale=1"><title>stall test</title>
+<style>html,body{margin:0;background:#000}video{width:100vw;height:100vh;object-fit:cover}</style>
+<video id="v" autoplay muted playsinline preload="metadata"></video>
+<script>
+// Minimal stand-in for a hero background video: same attributes a real page must have for
+// mobile autoplay (muted + playsinline), one <video>, src from ?f=<file served next to this page>.
+var v = document.getElementById('v');
+window.__t0 = Date.now();
+window.__ev = { waiting: 0, stalled: 0, playing: 0, stallMs: 0 };
+var stallStart = null;
+v.addEventListener('waiting', function () { __ev.waiting++; if (stallStart === null) stallStart = Date.now(); });
+v.addEventListener('stalled', function () { __ev.stalled++; });
+v.addEventListener('playing', function () { __ev.playing++; if (stallStart !== null) { __ev.stallMs += Date.now() - stallStart; stallStart = null; } });
+var f = new URLSearchParams(location.search).get('f') || '';
+v.src = /^https?:\/\//.test(f) ? f : '/' + f; // absolute CDN URL preferred: python http.server has no Range support, which iOS needs
+v.play().catch(function () {});
+</script>
