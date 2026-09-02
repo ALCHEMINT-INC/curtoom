@@ -23,11 +23,11 @@ npx skills add ALCHEMINT-INC/curtoom -g -a claude-code -a codex -y
 
 ## Skills
 
-|  | skill | 언제 쓰는가 |
-|:--|:--|:--|
-| <img alt="ENCODE" src="https://img.shields.io/badge/ENCODE-ffe45d?style=flat-square"> | [`encoding-hero-video-for-mobile`](skills/encoding-hero-video-for-mobile) | 마스터 → 모바일용 9:16 히어로 클립을 명령 하나로: remux/재인코딩 자동 판단, 초당 비트레이트 측정, PASS / FAIL 출력 |
-| <img alt="VERIFY" src="https://img.shields.io/badge/VERIFY-9dc6ff?style=flat-square"> | [`verifying-hero-video-on-mobile`](skills/verifying-hero-video-on-mobile) | 배경/히어로 영상이 휴대폰에서 "끊긴다", "자동 재생이 안 된다", "재생 버튼이 뜬다"일 때: 비트레이트 상한, Chrome 스로틀링 테스트, iOS 시뮬레이터, 업로드와 CDN 캐시 점검 |
-| <img alt="STITCH" src="https://img.shields.io/badge/STITCH-ff9fc6?style=flat-square"> | [`video-clip-stitching`](skills/video-clip-stitching) | AI 생성 클립 여러 개를 하나로: 컷 지점 찾기, 이음새 진단, 생성 소재 규격 검수 |
+| skill | 언제 쓰는가 |
+|:--|:--|
+| [`encoding-hero-video-for-mobile`](skills/encoding-hero-video-for-mobile) | **ENCODE** · 마스터 → 모바일용 9:16 히어로 클립을 명령 하나로: remux/재인코딩 자동 판단, 초당 비트레이트 측정, PASS / FAIL 출력 |
+| [`verifying-hero-video-on-mobile`](skills/verifying-hero-video-on-mobile) | **VERIFY** · 배경/히어로 영상이 휴대폰에서 "끊긴다", "자동 재생이 안 된다", "재생 버튼이 뜬다"일 때: 비트레이트 상한, Chrome 스로틀링 테스트, iOS 시뮬레이터, 업로드와 CDN 캐시 점검 |
+| [`video-clip-stitching`](skills/video-clip-stitching) | **STITCH** · AI 생성 클립 여러 개를 하나로: 컷 지점 찾기, 이음새 진단, 생성 소재 규격 검수 |
 
 ## 구성
 

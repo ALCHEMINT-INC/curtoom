@@ -23,11 +23,11 @@ One line, both agents: skills land in `~/.agents/skills` (Codex) and are symlink
 
 ## Skills
 
-|  | skill | when your agent reaches for it |
-|:--|:--|:--|
-| <img alt="ENCODE" src="https://img.shields.io/badge/ENCODE-ffe45d?style=flat-square"> | [`encoding-hero-video-for-mobile`](skills/encoding-hero-video-for-mobile) | Master → phone-sized 9:16 hero clip in one command: remux or re-encode automatically, measure per-second bitrate, print PASS / FAIL |
-| <img alt="VERIFY" src="https://img.shields.io/badge/VERIFY-9dc6ff?style=flat-square"> | [`verifying-hero-video-on-mobile`](skills/verifying-hero-video-on-mobile) | Background / hero video on phones — "stutters", "won't autoplay", "shows a play button": bitrate ceiling, Chrome throttle harness, iOS Simulator, upload and CDN-cache checks |
-| <img alt="STITCH" src="https://img.shields.io/badge/STITCH-ff9fc6?style=flat-square"> | [`video-clip-stitching`](skills/video-clip-stitching) | Stitch AI-generated clips into one: find cut points, diagnose seams, check generated footage specs |
+| skill | when your agent reaches for it |
+|:--|:--|
+| [`encoding-hero-video-for-mobile`](skills/encoding-hero-video-for-mobile) | **ENCODE** · Master → phone-sized 9:16 hero clip in one command: remux or re-encode automatically, measure per-second bitrate, print PASS / FAIL |
+| [`verifying-hero-video-on-mobile`](skills/verifying-hero-video-on-mobile) | **VERIFY** · Background / hero video on phones — "stutters", "won't autoplay", "shows a play button": bitrate ceiling, Chrome throttle harness, iOS Simulator, upload and CDN-cache checks |
+| [`video-clip-stitching`](skills/video-clip-stitching) | **STITCH** · Stitch AI-generated clips into one: find cut points, diagnose seams, check generated footage specs |
 
 ## Layout
 

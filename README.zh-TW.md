@@ -23,11 +23,11 @@ npx skills add ALCHEMINT-INC/curtoom -g -a claude-code -a codex -y
 
 ## Skills
 
-|  | skill | 什麼時候會用到 |
-|:--|:--|:--|
-| <img alt="ENCODE" src="https://img.shields.io/badge/ENCODE-ffe45d?style=flat-square"> | [`encoding-hero-video-for-mobile`](skills/encoding-hero-video-for-mobile) | 母帶 → 手機 9:16 hero 片，一條指令：自動判斷 remux／重壓、量每秒碼率、印 PASS／FAIL |
-| <img alt="VERIFY" src="https://img.shields.io/badge/VERIFY-9dc6ff?style=flat-square"> | [`verifying-hero-video-on-mobile`](skills/verifying-hero-video-on-mobile) | 背景／hero 影片在手機上「卡住」「沒自動播放」「出現播放鍵」：碼率門檻、Chrome throttle 測試台、iOS 模擬器、上傳與 CDN 快取檢查 |
-| <img alt="STITCH" src="https://img.shields.io/badge/STITCH-ff9fc6?style=flat-square"> | [`video-clip-stitching`](skills/video-clip-stitching) | 把多段 AI 生成的片段接成一支：找切點、診斷接縫、驗收素材規格 |
+| skill | 什麼時候會用到 |
+|:--|:--|
+| [`encoding-hero-video-for-mobile`](skills/encoding-hero-video-for-mobile) | **ENCODE** · 母帶 → 手機 9:16 hero 片，一條指令：自動判斷 remux／重壓、量每秒碼率、印 PASS／FAIL |
+| [`verifying-hero-video-on-mobile`](skills/verifying-hero-video-on-mobile) | **VERIFY** · 背景／hero 影片在手機上「卡住」「沒自動播放」「出現播放鍵」：碼率門檻、Chrome throttle 測試台、iOS 模擬器、上傳與 CDN 快取檢查 |
+| [`video-clip-stitching`](skills/video-clip-stitching) | **STITCH** · 把多段 AI 生成的片段接成一支：找切點、診斷接縫、驗收素材規格 |
 
 ## 目錄結構
 
