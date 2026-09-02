@@ -9,7 +9,7 @@
   <img alt="ffmpeg" src="https://img.shields.io/badge/ffmpeg-required-FDF3D1?style=flat-square&labelColor=05070a">
 </p>
 
-<p align="center">[English](README.md) · [繁體中文](README.zh-TW.md) · [简体中文](README.zh-CN.md) · [日本語](README.ja.md) · 한국어</p>
+<p align="center"><a href="README.md">English</a> &nbsp;·&nbsp; <a href="README.zh-TW.md">繁體中文</a> &nbsp;·&nbsp; <a href="README.zh-CN.md">简体中文</a> &nbsp;·&nbsp; <a href="README.ja.md">日本語</a> &nbsp;·&nbsp; <b>한국어</b></p>
 
 <br>
 
