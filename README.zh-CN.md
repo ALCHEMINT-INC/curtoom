@@ -23,11 +23,49 @@ npx skills add ALCHEMINT-INC/curtoom -g -a claude-code -a codex -y
 
 ## Skills
 
-| skill | 什么时候会用到 |
-|:--|:--|
-| [`encoding-hero-video-for-mobile`](skills/encoding-hero-video-for-mobile) | **ENCODE** · 母带 → 手机 9:16 hero 片，一条命令：自动判断 remux／重压、测每秒码率、打印 PASS／FAIL |
-| [`verifying-hero-video-on-mobile`](skills/verifying-hero-video-on-mobile) | **VERIFY** · 背景／hero 视频在手机上「卡住」「不自动播放」「出现播放键」：码率门槛、Chrome 限速测试台、iOS 模拟器、上传与 CDN 缓存检查 |
-| [`video-clip-stitching`](skills/video-clip-stitching) | **STITCH** · 把多段 AI 生成的片段接成一支：找切点、诊断接缝、验收素材规格 |
+三个 skill，一条产线。**STITCH** 把分段生成的片接成一支能用的素材；**ENCODE** 把素材压成手机真的能流畅拉取的文件；**VERIFY** 证明页面播得出来——它不压任何东西、可用可不用，手机出状况或你想在没有实体手机的情况下先拿到证据时再开。
+
+### ENCODE · [`encoding-hero-video-for-mobile`](skills/encoding-hero-video-for-mobile)
+
+**解决的问题** — 笔记本上播得好好的 hero 片，到手机上一顿一顿。实际案例：1792×3184、CRF 20 的成品压出 11.7 Mbps／69 MB；手机网络（Chrome「Fast 4G」实测约 7.5 Mbps）喂它一秒播一秒等，然后冻住。
+
+**什么时候用** — 任何要上手机的 9:16 背景／hero 片，以及已经在手机上卡的片。
+
+**它做什么** — 一条命令。母带已经是 H.264、≤ 1440×2560、≤ 6 Mbps 就只 remux（moov 搬到前面，零损耗）；否则缩到 1440×2560、CRF 23、preset slow、音轨原样复制，压完测每秒码率，打印 `PASS` 或 `FAIL: rerun with 1920`。
+
+**为什么是 CRF 23** — CRF 锁的是感知质量，不是码率。同一个 CRF 20，静态镜头 6 Mbps、高运动量素材 8.6 Mbps——实测——而 8.6 在 7.5 Mbps 的线路上就是卡。CRF 23 落在 5.7 Mbps，手机大小的背景片看不出差别。高于 1440×2560 的原生分辨率一律不留：手机屏幕最宽 1290×2796，多的像素只是多的码率。
+
+**收益** — 69 MB → 34.5 MB、11.7 → 5.7 Mbps；46 秒的片在 Fast 4G 下从头播到尾，同时页面还在后台预载下一支。
+
+<sub>验证于 2026-09-03 · ffmpeg 8.0 · macOS 26</sub>
+
+### VERIFY · [`verifying-hero-video-on-mobile`](skills/verifying-hero-video-on-mobile)
+
+**跟 ENCODE 的区别** — 它完全不碰文件。ENCODE 产出一支片；VERIFY 告诉你页面在手机上到底播不播得出来、不播是为什么。两者独立，各用各的。
+
+**解决的问题** — 手机上 hero 不动，你分不清是**饿死**（码率高过带宽）还是**被挡**（自动播放策略、低电量模式、一个还在跑昨天页面的旧标签页）。桌面 Chrome 播得动不算证据——桌面两种失败都碰不到。
+
+**什么时候用** — 设计上就是选用。第 0 层一律做（一分钟）；有人反馈卡顿、或上线前想拿证据才做第 1 层；反馈「不自动播放」「出现播放键」才做第 2 层。
+
+**它做什么** — 第 0 层：每秒码率门槛、`curl --limit-rate` 快筛、用 ETag＝MD5 与前 1.5 MB 验上传完整与 faststart、先上传再 push 的顺序、CDN range 缓存的坑。第 1 层：Chrome DevTools 限速测试台，用覆写 `Math.random` 强制抽到目标片。第 2 层：iOS 模拟器冷加载与切 app 的截图比对，不需要 iPhone。
+
+**收益** — 五分钟内把「页面有 bug」和「设备状态」分开。它让我们没有去「修」一段根本没坏的 visibility 逻辑，还挖出同名覆盖会在四小时内吐出新旧混合片段的坑（`HEAD` 说 `DYNAMIC`，range `GET` 才说 `HIT`）。
+
+<sub>验证于 2026-09-03 · Chrome 140 · iOS 26 模拟器</sub>
+
+### STITCH · [`video-clip-stitching`](skills/video-clip-stitching)
+
+**解决的问题** — 链式生成——拿第 N 段的尾帧当第 N+1 段的首帧——每一段续生的开头都会有约半秒几乎不动的「死水」。直接 `concat` 看起来就是「卡住了」「好像重复」；其实没有任何一帧重复，是动作断了。再加上容器帧率会骗人：30 fps 的内容包成 60 fps，每个头都写 60。
+
+**什么时候用** — Dreamina、Runway、Higgsfield、Seedance 这类 01／02／03 分段生成的系列；任何「卡住」「重复」「不顺」「有 overlap」的抱怨；生成素材送去任何地方之前的验收。
+
+**它做什么** — `clip_qc.py` 报告三种帧率（容器、帧密度、有效），用相位结构抓灌水帧——灌水素材的奇偶相位差 7.5×，真素材 1.1×——外加停滞帧比例与预览版混进高清版的情况。`seam_probe.py` 把每个接缝分成三种处理相反的类型：不同机位 → 硬切；构图延续 → 砍死水＋叠化；真重叠 → 砍掉被重演的段落。切点由「接缝后运动量 ÷ 接缝前运动量」决定，目标趋近 1。`join_clips.sh` 一次编码完成，`xfade` 的 offset 是算出来的不是手填的，三个 ffmpeg 地雷事先拆掉。
+
+**为什么是比值** — 只看曲线曾经推出要砍 54 帧，正解是 0——前一段本来就收得慢，后段开头的低运动量是匹配的。同一条曲线配不同基准线，结论相反。两批看起来一模一样的素材，切点分别是 30 和 0。
+
+**收益** — 接缝经得起实际播放，还有一套诚实的验收：时长对账、接缝定格、分段 `volumedetect`。
+
+<sub>验证于 2026-09-02 · ffmpeg 8.0</sub>
 
 ## 目录结构
 
