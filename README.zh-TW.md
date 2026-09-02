@@ -1,12 +1,12 @@
-<p align="center"><a href="https://alchemint.xyz"><img src="assets/banner.svg" alt="cutroom — ffmpeg skills for coding agents, by Alchemint" width="760"></a></p>
+<p align="center"><a href="https://alchemint.xyz"><img src="assets/banner.png" alt="cutroom — ffmpeg skills for coding agents, by Alchemint" width="960"></a></p>
 
 <p align="center"><b>基於 ffmpeg 的 agent skill：壓碼率、接片段、驗播放——按影片實際上線的方式來做。</b></p>
 
 <p align="center">
-  <img alt="skills" src="https://img.shields.io/badge/skills-3-FDF3D1?style=flat-square&labelColor=05070a">
-  <img alt="Claude Code" src="https://img.shields.io/badge/Claude_Code-ready-FDF3D1?style=flat-square&labelColor=05070a">
-  <img alt="Codex" src="https://img.shields.io/badge/Codex-ready-FDF3D1?style=flat-square&labelColor=05070a">
-  <img alt="ffmpeg" src="https://img.shields.io/badge/ffmpeg-required-FDF3D1?style=flat-square&labelColor=05070a">
+  <img alt="skills: 3" src="https://img.shields.io/badge/SKILLS-3-ffe45d?style=for-the-badge&labelColor=141414">
+  <img alt="Claude Code" src="https://img.shields.io/badge/CLAUDE_CODE-READY-9dc6ff?style=for-the-badge&labelColor=141414">
+  <img alt="Codex" src="https://img.shields.io/badge/CODEX-READY-c7afff?style=for-the-badge&labelColor=141414">
+  <img alt="ffmpeg" src="https://img.shields.io/badge/FFMPEG-REQUIRED-ff9fc6?style=for-the-badge&labelColor=141414">
 </p>
 
 <p align="center"><a href="README.md">English</a> &nbsp;·&nbsp; <b>繁體中文</b> &nbsp;·&nbsp; <a href="README.zh-CN.md">简体中文</a> &nbsp;·&nbsp; <a href="README.ja.md">日本語</a> &nbsp;·&nbsp; <a href="README.ko.md">한국어</a></p>
@@ -23,11 +23,11 @@ npx skills add ALCHEMINT-INC/curtoom -g -a claude-code -a codex -y
 
 ## Skills
 
-| | skill | 什麼時候會用到 |
-|:-:|---|---|
-| 🎞️ | [`encoding-hero-video-for-mobile`](skills/encoding-hero-video-for-mobile) | 母帶 → 手機 9:16 hero 片，一條指令：自動判斷 remux／重壓、量每秒碼率、印 PASS／FAIL |
-| 📱 | [`verifying-hero-video-on-mobile`](skills/verifying-hero-video-on-mobile) | 背景／hero 影片在手機上「卡住」「沒自動播放」「出現 ▶」：碼率門檻、Chrome throttle 測試台、iOS 模擬器、上傳與 CDN 快取檢查 |
-| ✂️ | [`video-clip-stitching`](skills/video-clip-stitching) | 把多段 AI 生成的片段接成一支：找切點、診斷接縫、驗收素材規格 |
+|  | skill | 什麼時候會用到 |
+|:--|:--|:--|
+| <img alt="ENCODE" src="https://img.shields.io/badge/ENCODE-ffe45d?style=flat-square"> | [`encoding-hero-video-for-mobile`](skills/encoding-hero-video-for-mobile) | 母帶 → 手機 9:16 hero 片，一條指令：自動判斷 remux／重壓、量每秒碼率、印 PASS／FAIL |
+| <img alt="VERIFY" src="https://img.shields.io/badge/VERIFY-9dc6ff?style=flat-square"> | [`verifying-hero-video-on-mobile`](skills/verifying-hero-video-on-mobile) | 背景／hero 影片在手機上「卡住」「沒自動播放」「出現播放鍵」：碼率門檻、Chrome throttle 測試台、iOS 模擬器、上傳與 CDN 快取檢查 |
+| <img alt="STITCH" src="https://img.shields.io/badge/STITCH-ff9fc6?style=flat-square"> | [`video-clip-stitching`](skills/video-clip-stitching) | 把多段 AI 生成的片段接成一支：找切點、診斷接縫、驗收素材規格 |
 
 ## 目錄結構
 

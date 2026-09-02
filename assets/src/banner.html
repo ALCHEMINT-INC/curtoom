@@ -1,0 +1,48 @@
+<!doctype html><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@500;700;900&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* REPLICA / Electric Playbill tokens (gild-design-system/replica/replica-tokens.css) */
+:root{--ink:#141414;--deep:#0e1030;--paper:#f5f0e4;--paper-2:#fffaf0;--yellow:#ffe45d;--blue:#9dc6ff;--pink:#ff9fc6;--green:#a9e6a1;--purple:#c7afff;--apricot:#e4b28d;
+  --display:'Archivo Black','Arial Black',sans-serif;--body:'Archivo',system-ui,sans-serif;--mono:'Space Mono',ui-monospace,Menlo,monospace}
+*{box-sizing:border-box}html,body{margin:0}
+body{width:1280px;height:400px;overflow:hidden;color:var(--ink);background:var(--paper) radial-gradient(rgba(20,20,20,.18) 1.2px,transparent 1.2px) 0 0/18px 18px;font-family:var(--body)}
+.stage{position:relative;width:1280px;height:400px}
+.board{position:absolute;border:3px solid var(--ink)}
+.board--rear{left:96px;top:52px;width:560px;height:300px;background:var(--purple);transform:rotate(-4deg)}
+.board--mid{left:112px;top:60px;width:560px;height:296px;background:var(--apricot);transform:rotate(2.5deg)}
+.card{position:absolute;left:150px;top:84px;width:480px;height:236px;background:var(--paper-2);border:3px solid var(--ink);box-shadow:10px 10px 0 var(--ink);display:flex;align-items:center;justify-content:center;gap:28px}
+.card svg{width:120px;height:120px}
+.card .wm{display:flex;flex-direction:column;gap:10px}
+.card .wm b{font:900 30px/1 var(--display);letter-spacing:-.01em}
+.card .wm span{font:700 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+.tag{position:absolute;padding:7px 10px;border:2px solid var(--ink);font:700 11px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;box-shadow:3px 3px 0 var(--ink)}
+.tag--encode{left:132px;top:58px;background:var(--yellow);transform:rotate(-6deg)}
+.tag--verify{left:360px;top:44px;background:var(--blue);transform:rotate(3deg)}
+.tag--stitch{left:552px;top:70px;background:var(--pink);transform:rotate(-3deg)}
+.title{position:absolute;left:720px;top:74px}
+.kicker{display:inline-block;margin-bottom:22px;padding:8px 12px;background:var(--green);border:2px solid var(--ink);font:700 12px/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;box-shadow:3px 3px 0 var(--ink)}
+h1{margin:0;font:900 118px/.86 var(--display);letter-spacing:-.035em}
+.lead{margin:22px 0 0 4px;max-width:470px;font:700 17px/1.45 var(--body)}
+.foot{position:absolute;left:0;right:0;bottom:0;height:34px;display:flex;align-items:center;justify-content:space-between;padding:0 24px;background:var(--ink);color:var(--paper);font:700 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase}
+</style>
+<div class="stage">
+  <div class="board board--rear"></div>
+  <div class="board board--mid"></div>
+  <div class="card">
+    <svg viewBox="0 0 256 256" fill="none" stroke="#141414" stroke-width="9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M102.29,33.26 A11.31,11.31 0 0 1 90.98,21.95 A11.31,11.31 0 0 1 102.29,10.63 L153.71,10.63 A11.31,11.31 0 0 1 165.02,21.95 A11.31,11.31 0 0 1 153.71,33.26"/>
+      <path d="M103.31,33.26 L103.31,94.94 C103.31,110.16 60.91,115.76 54.52,160.69 A74.22,74.22 0 1 0 201.48,160.69 C195.09,115.76 152.69,110.16 152.69,94.94 L152.69,33.26"/>
+      <path d="M70.60,152.50 C123.45,135.90 137.45,175.60 186.58,154.53"/>
+    </svg>
+    <div class="wm"><b>ALCHEMINT</b><span>ffmpeg · claude code · codex</span></div>
+  </div>
+  <span class="tag tag--encode">encode</span>
+  <span class="tag tag--verify">verify</span>
+  <span class="tag tag--stitch">stitch</span>
+  <div class="title">
+    <span class="kicker">ffmpeg skills for coding agents</span>
+    <h1>cutroom</h1>
+    <p class="lead">Encode, stitch, and verify video the way it actually ships.</p>
+  </div>
+  <div class="foot"><span>skills/&lt;name&gt;/SKILL.md</span><span>npx skills add ALCHEMINT-INC/curtoom</span></div>
+</div>

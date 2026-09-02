@@ -1,12 +1,12 @@
-<p align="center"><a href="https://alchemint.xyz"><img src="assets/banner.svg" alt="cutroom — ffmpeg skills for coding agents, by Alchemint" width="760"></a></p>
+<p align="center"><a href="https://alchemint.xyz"><img src="assets/banner.png" alt="cutroom — ffmpeg skills for coding agents, by Alchemint" width="960"></a></p>
 
 <p align="center"><b>ffmpeg 기반 코딩 에이전트 스킬 — 인코딩, 이어 붙이기, 재생 검증을 영상이 실제로 배포되는 방식 그대로.</b></p>
 
 <p align="center">
-  <img alt="skills" src="https://img.shields.io/badge/skills-3-FDF3D1?style=flat-square&labelColor=05070a">
-  <img alt="Claude Code" src="https://img.shields.io/badge/Claude_Code-ready-FDF3D1?style=flat-square&labelColor=05070a">
-  <img alt="Codex" src="https://img.shields.io/badge/Codex-ready-FDF3D1?style=flat-square&labelColor=05070a">
-  <img alt="ffmpeg" src="https://img.shields.io/badge/ffmpeg-required-FDF3D1?style=flat-square&labelColor=05070a">
+  <img alt="skills: 3" src="https://img.shields.io/badge/SKILLS-3-ffe45d?style=for-the-badge&labelColor=141414">
+  <img alt="Claude Code" src="https://img.shields.io/badge/CLAUDE_CODE-READY-9dc6ff?style=for-the-badge&labelColor=141414">
+  <img alt="Codex" src="https://img.shields.io/badge/CODEX-READY-c7afff?style=for-the-badge&labelColor=141414">
+  <img alt="ffmpeg" src="https://img.shields.io/badge/FFMPEG-REQUIRED-ff9fc6?style=for-the-badge&labelColor=141414">
 </p>
 
 <p align="center"><a href="README.md">English</a> &nbsp;·&nbsp; <a href="README.zh-TW.md">繁體中文</a> &nbsp;·&nbsp; <a href="README.zh-CN.md">简体中文</a> &nbsp;·&nbsp; <a href="README.ja.md">日本語</a> &nbsp;·&nbsp; <b>한국어</b></p>
@@ -23,11 +23,11 @@ npx skills add ALCHEMINT-INC/curtoom -g -a claude-code -a codex -y
 
 ## Skills
 
-| | skill | 언제 쓰는가 |
-|:-:|---|---|
-| 🎞️ | [`encoding-hero-video-for-mobile`](skills/encoding-hero-video-for-mobile) | 마스터 → 모바일용 9:16 히어로 클립을 명령 하나로: remux/재인코딩 자동 판단, 초당 비트레이트 측정, PASS / FAIL 출력 |
-| 📱 | [`verifying-hero-video-on-mobile`](skills/verifying-hero-video-on-mobile) | 배경/히어로 영상이 휴대폰에서 "끊긴다", "자동 재생이 안 된다", "▶가 뜬다"일 때: 비트레이트 상한, Chrome 스로틀링 테스트, iOS 시뮬레이터, 업로드와 CDN 캐시 점검 |
-| ✂️ | [`video-clip-stitching`](skills/video-clip-stitching) | AI 생성 클립 여러 개를 하나로: 컷 지점 찾기, 이음새 진단, 생성 소재 규격 검수 |
+|  | skill | 언제 쓰는가 |
+|:--|:--|:--|
+| <img alt="ENCODE" src="https://img.shields.io/badge/ENCODE-ffe45d?style=flat-square"> | [`encoding-hero-video-for-mobile`](skills/encoding-hero-video-for-mobile) | 마스터 → 모바일용 9:16 히어로 클립을 명령 하나로: remux/재인코딩 자동 판단, 초당 비트레이트 측정, PASS / FAIL 출력 |
+| <img alt="VERIFY" src="https://img.shields.io/badge/VERIFY-9dc6ff?style=flat-square"> | [`verifying-hero-video-on-mobile`](skills/verifying-hero-video-on-mobile) | 배경/히어로 영상이 휴대폰에서 "끊긴다", "자동 재생이 안 된다", "재생 버튼이 뜬다"일 때: 비트레이트 상한, Chrome 스로틀링 테스트, iOS 시뮬레이터, 업로드와 CDN 캐시 점검 |
+| <img alt="STITCH" src="https://img.shields.io/badge/STITCH-ff9fc6?style=flat-square"> | [`video-clip-stitching`](skills/video-clip-stitching) | AI 생성 클립 여러 개를 하나로: 컷 지점 찾기, 이음새 진단, 생성 소재 규격 검수 |
 
 ## 구성
 

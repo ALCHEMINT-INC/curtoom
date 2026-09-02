@@ -1,12 +1,12 @@
-<p align="center"><a href="https://alchemint.xyz"><img src="assets/banner.svg" alt="cutroom — ffmpeg skills for coding agents, by Alchemint" width="760"></a></p>
+<p align="center"><a href="https://alchemint.xyz"><img src="assets/banner.png" alt="cutroom — ffmpeg skills for coding agents, by Alchemint" width="960"></a></p>
 
 <p align="center"><b>ffmpeg ベースのコーディングエージェント向けスキル — エンコード、つなぎ合わせ、再生検証を、動画が実際に世に出るやり方で。</b></p>
 
 <p align="center">
-  <img alt="skills" src="https://img.shields.io/badge/skills-3-FDF3D1?style=flat-square&labelColor=05070a">
-  <img alt="Claude Code" src="https://img.shields.io/badge/Claude_Code-ready-FDF3D1?style=flat-square&labelColor=05070a">
-  <img alt="Codex" src="https://img.shields.io/badge/Codex-ready-FDF3D1?style=flat-square&labelColor=05070a">
-  <img alt="ffmpeg" src="https://img.shields.io/badge/ffmpeg-required-FDF3D1?style=flat-square&labelColor=05070a">
+  <img alt="skills: 3" src="https://img.shields.io/badge/SKILLS-3-ffe45d?style=for-the-badge&labelColor=141414">
+  <img alt="Claude Code" src="https://img.shields.io/badge/CLAUDE_CODE-READY-9dc6ff?style=for-the-badge&labelColor=141414">
+  <img alt="Codex" src="https://img.shields.io/badge/CODEX-READY-c7afff?style=for-the-badge&labelColor=141414">
+  <img alt="ffmpeg" src="https://img.shields.io/badge/FFMPEG-REQUIRED-ff9fc6?style=for-the-badge&labelColor=141414">
 </p>
 
 <p align="center"><a href="README.md">English</a> &nbsp;·&nbsp; <a href="README.zh-TW.md">繁體中文</a> &nbsp;·&nbsp; <a href="README.zh-CN.md">简体中文</a> &nbsp;·&nbsp; <b>日本語</b> &nbsp;·&nbsp; <a href="README.ko.md">한국어</a></p>
@@ -23,11 +23,11 @@ npx skills add ALCHEMINT-INC/curtoom -g -a claude-code -a codex -y
 
 ## Skills
 
-| | skill | 使いどころ |
-|:-:|---|---|
-| 🎞️ | [`encoding-hero-video-for-mobile`](skills/encoding-hero-video-for-mobile) | マスター → スマホ向け 9:16 ヒーロー動画をコマンド 1 つで：remux か再エンコードかを自動判定、秒間ビットレートを計測、PASS / FAIL を出力 |
-| 📱 | [`verifying-hero-video-on-mobile`](skills/verifying-hero-video-on-mobile) | 背景／ヒーロー動画がスマホで「カクつく」「自動再生しない」「▶ が出る」：ビットレート上限、Chrome スロットリング環境、iOS シミュレータ、アップロードと CDN キャッシュの確認 |
-| ✂️ | [`video-clip-stitching`](skills/video-clip-stitching) | AI 生成クリップを 1 本につなぐ：カット点の探索、つなぎ目の診断、生成素材の仕様チェック |
+|  | skill | 使いどころ |
+|:--|:--|:--|
+| <img alt="ENCODE" src="https://img.shields.io/badge/ENCODE-ffe45d?style=flat-square"> | [`encoding-hero-video-for-mobile`](skills/encoding-hero-video-for-mobile) | マスター → スマホ向け 9:16 ヒーロー動画をコマンド 1 つで：remux か再エンコードかを自動判定、秒間ビットレートを計測、PASS / FAIL を出力 |
+| <img alt="VERIFY" src="https://img.shields.io/badge/VERIFY-9dc6ff?style=flat-square"> | [`verifying-hero-video-on-mobile`](skills/verifying-hero-video-on-mobile) | 背景／ヒーロー動画がスマホで「カクつく」「自動再生しない」「再生ボタンが出る」：ビットレート上限、Chrome スロットリング環境、iOS シミュレータ、アップロードと CDN キャッシュの確認 |
+| <img alt="STITCH" src="https://img.shields.io/badge/STITCH-ff9fc6?style=flat-square"> | [`video-clip-stitching`](skills/video-clip-stitching) | AI 生成クリップを 1 本につなぐ：カット点の探索、つなぎ目の診断、生成素材の仕様チェック |
 
 ## 構成
 
