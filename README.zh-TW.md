@@ -56,6 +56,10 @@ npx skills add ALCHEMINT-INC/curtoom -g -a claude-code -a codex -y
 
 **曲線**是逐幀運動量（平均絕對差、5 幀移動平均），從接縫前一秒到接縫後兩秒。接縫前兩條線是同一段素材；接縫後，直接接掉進陰影帶——半秒鐘只有接縫前約一半的運動量（比值 0.54），最終成片則立刻爬回去（比值 1.45）。這個「接縫後 ÷ 接縫前趨近 1」的比值，就是 `seam_probe.py` 選切點的規則。
 
+https://github.com/user-attachments/assets/cb6dec2d-ac99-4b89-9c54-12e51aa2c28a
+
+<sub>同一組對照的影片版——1760×1672、60 fps、0.5× 慢放、六秒，按播放。下面的 GIF 是同一個東西，給不渲染影片的地方看。</sub>
+
 <p align="center"><img src="assets/video-clip-stitching-seam-raw-join-vs-final-cut-half-speed-loop.gif" alt="同一個接縫的動態版，0.5× 慢放、循環" width="880"></p>
 
 <sub>兩邊是同一秒的素材。左邊直接接：接縫一過畫面停住半秒（慢放後是一整秒），DEAD WATER 標籤亮起；右邊最終成片：一直在動。用 ffmpeg 從原始三段直接合成，filtergraph 放在 `assets/src/`。</sub>

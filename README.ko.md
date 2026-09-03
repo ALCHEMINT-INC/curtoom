@@ -56,6 +56,10 @@ npx skills add ALCHEMINT-INC/curtoom -g -a claude-code -a codex -y
 
 **곡선**은 프레임별 움직임(평균 절대 차, 5프레임 이동 평균)으로, 이음새 1초 전부터 2초 후까지. 이음새 앞에서는 두 선이 같은 소재다. 뒤에서는 그냥 붙인 쪽이 음영 띠로 떨어지고 — 0.5초 동안 직전의 절반가량의 움직임(비율 0.54) — 최종 컷은 즉시 올라간다(비율 1.45). 이 "뒤 ÷ 앞이 1에 가까워지는" 비율이 `seam_probe.py`가 컷 지점을 고르는 규칙이다.
 
+https://github.com/user-attachments/assets/cb6dec2d-ac99-4b89-9c54-12e51aa2c28a
+
+<sub>같은 비교의 영상판 — 1760×1672, 60 fps, 0.5배속, 6초. 재생을 누르세요. 아래 GIF는 같은 내용으로, 영상을 렌더링하지 않는 곳을 위한 것입니다.</sub>
+
 <p align="center"><img src="assets/video-clip-stitching-seam-raw-join-vs-final-cut-half-speed-loop.gif" alt="같은 이음새를 움직임으로, 0.5배속, 반복" width="880"></p>
 
 <sub>양쪽 모두 같은 1초의 소재. 왼쪽은 그냥 붙임: 이음새를 지나면 화면이 0.5초(이 속도에서는 1초) 멈추고 DEAD WATER 태그가 뜬다. 오른쪽은 최종 컷: 계속 움직인다. 원본 테이크에서 ffmpeg로 합성, 필터그래프는 `assets/src/`에.</sub>

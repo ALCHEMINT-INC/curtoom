@@ -56,6 +56,10 @@ Same footage, same seam, one second each. **Top row — raw join:** the last fra
 
 **The curve** is per-frame motion (mean absolute difference, 5-frame moving average) from one second before the seam to two seconds after. Before the seam the two lines are the same footage. After it, the raw join drops into the shaded band — half a second at roughly half the motion of the frames before the seam (ratio 0.54) — while the final cut climbs immediately (ratio 1.45). That ratio, after ÷ before approaching 1, is the rule `seam_probe.py` uses to pick the cut point.
 
+https://github.com/user-attachments/assets/cb6dec2d-ac99-4b89-9c54-12e51aa2c28a
+
+<sub>The same comparison as video — 1760×1672, 60 fps, 0.5× speed, six seconds. Press play. The GIF below is the same thing for places that do not render video.</sub>
+
 <p align="center"><img src="assets/video-clip-stitching-seam-raw-join-vs-final-cut-half-speed-loop.gif" alt="The same seam in motion, at 0.5× speed, looping" width="880"></p>
 
 <sub>Same second of footage on both sides. Left, the raw join: after the seam the picture holds for half a second (a full second at this speed) and the DEAD WATER tag comes up. Right, the final cut: it keeps moving. Built with ffmpeg from the source takes; the filtergraph is in `assets/src/`.</sub>
