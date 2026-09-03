@@ -3,8 +3,8 @@
 [t02][h03]concat=n=2:v=1:a=0,scale=360:646,fps=60[raw];
 [3:v]trim=start_frame=1681:end_frame=1861,setpts=PTS-STARTPTS,setsar=1,scale=360:646,fps=60[fin];
 [0:v]fps=60,format=rgba[bg];
-[bg][raw]overlay=43:99:shortest=1[a];
-[a][fin]overlay=477:99[b];
-[b]drawtext=fontfile=/System/Library/Fonts/Menlo.ttc:text='DEAD WATER':fontsize=22:fontcolor=white:box=1:boxcolor=0xC52B24:boxborderw=10:x=63:y=670:enable='between(n,60,90)'[c];
-[c]drawtext=fontfile=/System/Library/Fonts/Menlo.ttc:text='%{eif\:(n-60)*1000/60\:d} ms from seam':fontsize=16:fontcolor=0x141414:x=w-40-text_w:y=34[d];
+[bg][raw]overlay=43:115:shortest=1[a];
+[a][fin]overlay=477:115[b];
+[b]drawtext=fontfile=/System/Library/Fonts/Menlo.ttc:text='DEAD WATER':fontsize=22:fontcolor=white:box=1:boxcolor=0xC52B24:boxborderw=10:x=63:y=686:enable='between(n,60,90)'[c];
+[c]drawtext=fontfile=/System/Library/Fonts/Menlo.ttc:text='%{eif\:(n-60)*1000/60\:d} ms from seam':fontsize=16:fontcolor=0x141414:x=w-40-text_w:y=30[d];
 [d]setpts=2*PTS,format=yuv420p[out]

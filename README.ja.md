@@ -56,7 +56,7 @@ npx skills add ALCHEMINT-INC/curtoom -g -a claude-code -a codex -y
 
 **曲線**はフレームごとの動き（平均絶対差、5 フレーム移動平均）で、つなぎ目の 1 秒前から 2 秒後まで。つなぎ目の前は 2 本とも同じ素材。後では、素の結合は網掛けの帯に落ち込み — 0.5 秒間、直前のおよそ半分の動き（比 0.54）— 最終カットはすぐに立ち上がる（比 1.45）。この「後 ÷ 前が 1 に近づく」比率が、`seam_probe.py` がカット点を選ぶルール。
 
-<p align="center"><img src="assets/video-clip-stitching-seam-raw-join-vs-final-cut-half-speed.gif" alt="同じつなぎ目を動きで、0.5 倍速、ループ" width="880"></p>
+<p align="center"><img src="assets/video-clip-stitching-seam-raw-join-vs-final-cut-half-speed-loop.gif" alt="同じつなぎ目を動きで、0.5 倍速、ループ" width="880"></p>
 
 <sub>両側とも同じ 1 秒の素材。左は素の結合：つなぎ目を過ぎると絵が 0.5 秒（この速度では 1 秒）止まり、DEAD WATER のタグが出る。右は最終カット：動き続ける。元のテイクから ffmpeg で合成、フィルタグラフは `assets/src/` に。</sub>
 
