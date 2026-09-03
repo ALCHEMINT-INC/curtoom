@@ -64,6 +64,8 @@ https://github.com/user-attachments/assets/cb6dec2d-ac99-4b89-9c54-12e51aa2c28a
 
 <sub>Same second of footage on both sides. Left, the raw join: after the seam the picture holds for half a second (a full second at this speed) and the DEAD WATER tag comes up. Right, the final cut: it keeps moving. Built with ffmpeg from the source takes; the filtergraph is in `assets/src/`.</sub>
 
+The full write-up, with the frame-rate checks, the three seam types and the 54-frames-that-should-have-been-0 story: [Read the article](https://article.alchemint.xyz/make-ai-video-seam-dead-water)
+
 ## Layout
 
 One directory per skill — `skills/<name>/SKILL.md` plus the scripts it needs. Project-specific settings (URLs, buckets, CSP hash rules) stay in each project's `CLAUDE.md` / `AGENTS.md`, not here. Skill bodies are written in Traditional Chinese; scripts and their usage lines are English.

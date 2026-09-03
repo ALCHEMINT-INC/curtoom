@@ -64,6 +64,8 @@ https://github.com/user-attachments/assets/cb6dec2d-ac99-4b89-9c54-12e51aa2c28a
 
 <sub>양쪽 모두 같은 1초의 소재. 왼쪽은 그냥 붙임: 이음새를 지나면 화면이 0.5초(이 속도에서는 1초) 멈추고 DEAD WATER 태그가 뜬다. 오른쪽은 최종 컷: 계속 움직인다. 원본 테이크에서 ffmpeg로 합성, 필터그래프는 `assets/src/`에.</sub>
 
+프레임레이트 검증, 세 가지 이음새, 그리고 "정답이 0이었던 54 프레임"까지 담은 글: [글 읽기](https://article.alchemint.xyz/make-ai-video-seam-dead-water)
+
 ## 구성
 
 스킬마다 디렉터리 하나 — `skills/<name>/SKILL.md`와 필요한 스크립트. 프로젝트 고유 설정(URL, 버킷, CSP 해시 규칙)은 각 프로젝트의 `CLAUDE.md`/`AGENTS.md`에 두고 여기에는 두지 않습니다. 스킬 본문은 번체 중국어로 작성되어 있습니다.

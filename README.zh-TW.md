@@ -64,6 +64,8 @@ https://github.com/user-attachments/assets/cb6dec2d-ac99-4b89-9c54-12e51aa2c28a
 
 <sub>兩邊是同一秒的素材。左邊直接接：接縫一過畫面停住半秒（慢放後是一整秒），DEAD WATER 標籤亮起；右邊最終成片：一直在動。用 ffmpeg 從原始三段直接合成，filtergraph 放在 `assets/src/`。</sub>
 
+完整文章（三種幀率、三種接縫、砍錯的 54 幀，全部攤開）： [閱讀文章](https://article.alchemint.xyz/make-ai-video-seam-dead-water)
+
 ## 目錄結構
 
 每個 skill 一個目錄——`skills/<name>/SKILL.md` 加上它需要的腳本。專案專屬的設定（網址、bucket、CSP hash 規則）留在各專案的 `CLAUDE.md`／`AGENTS.md`，不放這裡。

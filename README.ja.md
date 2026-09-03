@@ -64,6 +64,8 @@ https://github.com/user-attachments/assets/cb6dec2d-ac99-4b89-9c54-12e51aa2c28a
 
 <sub>両側とも同じ 1 秒の素材。左は素の結合：つなぎ目を過ぎると絵が 0.5 秒（この速度では 1 秒）止まり、DEAD WATER のタグが出る。右は最終カット：動き続ける。元のテイクから ffmpeg で合成、フィルタグラフは `assets/src/` に。</sub>
 
+フレームレートの検証、3 種のつなぎ目、そして「0 が正解だった 54 フレーム」まで書いた記事： [記事を読む](https://article.alchemint.xyz/make-ai-video-seam-dead-water)
+
 ## 構成
 
 スキルごとに 1 ディレクトリ — `skills/<name>/SKILL.md` と必要なスクリプト。プロジェクト固有の設定（URL、バケット、CSP ハッシュのルール）は各プロジェクトの `CLAUDE.md`／`AGENTS.md` に置き、ここには置きません。スキル本文は繁体字中国語で書かれています。

@@ -64,6 +64,8 @@ https://github.com/user-attachments/assets/cb6dec2d-ac99-4b89-9c54-12e51aa2c28a
 
 <sub>两边是同一秒的素材。左边直接接：接缝一过画面停住半秒（慢放后是一整秒），DEAD WATER 标签亮起；右边最终成片：一直在动。用 ffmpeg 从原始三段直接合成，filtergraph 放在 `assets/src/`。</sub>
 
+完整文章（三种帧率、三种接缝、砍错的 54 帧，全部摊开）： [阅读文章](https://article.alchemint.xyz/make-ai-video-seam-dead-water)
+
 ## 目录结构
 
 每个 skill 一个目录——`skills/<name>/SKILL.md` 加上它需要的脚本。项目专属的设置（网址、bucket、CSP hash 规则）留在各项目的 `CLAUDE.md`／`AGENTS.md`，不放这里。Skill 正文以繁体中文撰写。
