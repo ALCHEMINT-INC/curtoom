@@ -56,6 +56,10 @@ Same footage, same seam, one second each. **Top row — raw join:** the last fra
 
 **The curve** is per-frame motion (mean absolute difference, 5-frame moving average) from one second before the seam to two seconds after. Before the seam the two lines are the same footage. After it, the raw join drops into the shaded band — half a second at roughly half the motion of the frames before the seam (ratio 0.54) — while the final cut climbs immediately (ratio 1.45). That ratio, after ÷ before approaching 1, is the rule `seam_probe.py` uses to pick the cut point.
 
+<p align="center"><img src="assets/video-clip-stitching-seam-raw-join-vs-final-cut-half-speed.gif" alt="The same seam in motion, at 0.5× speed, looping" width="880"></p>
+
+<sub>Same second of footage on both sides. Left, the raw join: after the seam the picture holds for half a second (a full second at this speed) and the DEAD WATER tag comes up. Right, the final cut: it keeps moving. Built with ffmpeg from the source takes; the filtergraph is in `assets/src/`.</sub>
+
 ## Layout
 
 One directory per skill — `skills/<name>/SKILL.md` plus the scripts it needs. Project-specific settings (URLs, buckets, CSP hash rules) stay in each project's `CLAUDE.md` / `AGENTS.md`, not here. Skill bodies are written in Traditional Chinese; scripts and their usage lines are English.

@@ -1,0 +1,20 @@
+<!doctype html><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@700&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#141414;--paper:#f5f0e4;--paper-2:#fffaf0;--pink:#ff9fc6;--green:#a9e6a1;--yellow:#ffe45d;--mono:'Space Mono',Menlo,monospace;--body:'Archivo',sans-serif;--display:'Archivo Black',sans-serif}
+*{box-sizing:border-box}html,body{margin:0}
+body{width:880px;height:800px;overflow:hidden;color:var(--ink);background:var(--paper) radial-gradient(rgba(20,20,20,.18) 1.2px,transparent 1.2px) 0 0/18px 18px;font-family:var(--body);position:relative}
+h1{position:absolute;left:40px;top:26px;margin:0;font:900 26px/1 var(--display);letter-spacing:-.01em}
+.sub{position:absolute;left:40px;top:60px;font:700 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;opacity:.6}
+.box{position:absolute;top:96px;width:366px;height:652px;border:3px solid var(--ink);background:var(--paper-2);box-shadow:6px 6px 0 var(--ink)}
+.box.l{left:40px}.box.r{left:474px}
+.tag{position:absolute;top:66px;padding:7px 10px;border:2px solid var(--ink);font:700 11px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;box-shadow:3px 3px 0 var(--ink);z-index:2}
+.tag.l{left:40px;background:var(--pink)}.tag.r{left:474px;background:var(--green)}
+.foot{position:absolute;left:40px;right:40px;bottom:18px;font:700 11px/1.5 var(--mono);letter-spacing:.08em;text-transform:uppercase;opacity:.6}
+</style>
+<h1>Seam 02 → 03, raw join vs final</h1>
+<div class="sub">cat mobile · 60 fps source · played at 0.5× · loops</div>
+<span class="tag l">raw join — 02 last frame → 03 first frame</span>
+<span class="tag r">final — cut 30 frames + 0.1 s dissolve</span>
+<div class="box l"></div><div class="box r"></div>
+<div class="foot">same second of footage on both sides · left freezes for half a second after the seam, right keeps moving</div>
