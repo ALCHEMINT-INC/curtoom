@@ -68,7 +68,7 @@ https://github.com/user-attachments/assets/cb6dec2d-ac99-4b89-9c54-12e51aa2c28a
 
 One directory per skill — `skills/<name>/SKILL.md` plus the scripts it needs. Project-specific settings (URLs, buckets, CSP hash rules) stay in each project's `CLAUDE.md` / `AGENTS.md`, not here. Skill bodies are written in Traditional Chinese; scripts and their usage lines are English.
 
-## Why these rules
+## Behind the scenes
 
 Every number in here was paid for. The short version: one cat, one glowing paper boat, three takes, two evenings.
 

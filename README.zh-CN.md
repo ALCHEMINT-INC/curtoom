@@ -68,7 +68,7 @@ https://github.com/user-attachments/assets/cb6dec2d-ac99-4b89-9c54-12e51aa2c28a
 
 每个 skill 一个目录——`skills/<name>/SKILL.md` 加上它需要的脚本。项目专属的设置（网址、bucket、CSP hash 规则）留在各项目的 `CLAUDE.md`／`AGENTS.md`，不放这里。Skill 正文以繁体中文撰写。
 
-## 为什么是这些规则
+## 这些 skill 怎么被弄出来的
 
 这里每个数字都交过学费。短版：一只猫、一艘发光的纸船、三段生成、两个晚上。
 

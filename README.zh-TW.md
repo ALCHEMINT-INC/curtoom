@@ -68,7 +68,7 @@ https://github.com/user-attachments/assets/cb6dec2d-ac99-4b89-9c54-12e51aa2c28a
 
 每個 skill 一個目錄——`skills/<name>/SKILL.md` 加上它需要的腳本。專案專屬的設定（網址、bucket、CSP hash 規則）留在各專案的 `CLAUDE.md`／`AGENTS.md`，不放這裡。
 
-## 為什麼是這些規則
+## 這些 skill 怎麼被弄出來的
 
 這裡每個數字都付過學費。短版：一隻貓、一艘發光的紙船、三段生成、兩個晚上。
 
