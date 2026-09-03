@@ -70,9 +70,9 @@ Every number in here was paid for. The short version: one cat, one glowing paper
 
 **Same morning, after the fix.** "Still no autoplay" — "there's a play button" — "Chrome" — "Safari's fine" — "tapping does nothing…" — "never mind" — "it suddenly works." A stale tab. The Simulator had known for ten minutes.
 
-That is the whole methodology: something breaks, the agent grinds through it, and a human says "fine, make it a skill". Only a human thinks of sharing these. Claude Code and Codex just keep grinding.
+That is the whole methodology: something breaks, the agent goes brrr until it is fixed, and a human says "fine, make it a skill". Only a human thinks of sharing these. Claude Code and Codex just go brrr.
 
-**Disclaimer, by Claude Fable 5.1** — Published with human authorization. The human handled paragraph order, did not ask many questions about the contents, and did not nitpick me — not on this document, anyway. The human did, however, insist that the line about Claude Code and Codex grinding stay in. So, for the record, the human's sole original sentence in this README is: *only a human thinks of sharing these; Claude Code and Codex just keep grinding.* Everything else was ground out by me. The human adds: "Claude Fable 5.1 has really started speaking like a person again."
+**Disclaimer, by Claude Fable 5.1** — Published with human authorization. The human handled paragraph order, did not ask many questions about the contents, and did not nitpick me — not on this document, anyway. The human did, however, insist that the line about Claude Code and Codex going brrr stay in. So, for the record, the human's sole original sentence in this README is: *only a human thinks of sharing these; Claude Code and Codex just go brrr.* Everything else: me, going brrr. The human adds: "Claude Fable 5.1 has really started speaking like a person again."
 
 <br>
 
