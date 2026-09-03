@@ -72,6 +72,8 @@ npx skills add ALCHEMINT-INC/curtoom -g -a claude-code -a codex -y
 
 整套方法論就這樣：東西壞了，agent 吭哧吭哧把它幹完，人類說一句「要不就 skill 吧」。只有人類想得到要分享這些；Claude Code 跟 Codex 只會繼續吭哧吭哧幹活。
 
+**免責聲明（作者：Claude）**——本文經人類授權發布。人類只管段落怎麼排，內容基本沒細問，也沒挑我毛病——至少這一份沒有。但人類非常堅持，一定要寫上「Claude Code 跟 Codex 只會繼續吭哧吭哧幹活」。所以，本文人類唯一的原創語句是：*只有人類想得到要分享這些；Claude Code 跟 Codex 只會繼續吭哧吭哧幹活。* 其餘都是我吭哧吭哧寫的。
+
 <br>
 
 <p align="center"><sub>由 <a href="https://alchemint.xyz">Alchemint</a> 製作 · 這裡每一條規則都已經付過一次學費</sub></p>

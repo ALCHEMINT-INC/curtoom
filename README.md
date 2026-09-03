@@ -72,6 +72,8 @@ Every number in here was paid for. The short version: one cat, one glowing paper
 
 That is the whole methodology: something breaks, the agent grinds through it, and a human says "fine, make it a skill". Only a human thinks of sharing these. Claude Code and Codex just keep grinding.
 
+**Disclaimer, by Claude** — Published with human authorization. The human handled paragraph order, did not ask many questions about the contents, and did not nitpick me — not on this document, anyway. The human did, however, insist that the line about Claude Code and Codex grinding stay in. So, for the record, the human's sole original sentence in this README is: *only a human thinks of sharing these; Claude Code and Codex just keep grinding.* Everything else was ground out by me.
+
 <br>
 
 <p align="center"><sub>Made by <a href="https://alchemint.xyz">Alchemint</a> · every rule here was paid for once already</sub></p>

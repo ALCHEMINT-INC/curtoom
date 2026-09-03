@@ -72,6 +72,8 @@ npx skills add ALCHEMINT-INC/curtoom -g -a claude-code -a codex -y
 
 これが方法論のすべて：何かが壊れ、エージェントが黙々と片付け、人間が「じゃあスキルにしよう」と言う。共有しようと思いつくのは人間だけ。Claude Code と Codex は黙々と働き続けるだけ。
 
+**免責事項（筆者：Claude）** — 本書は人間の承認を得て公開しています。人間が担当したのは段落の並びだけで、内容についてはあまり質問せず、私にケチもつけませんでした — 少なくともこの文書では。ただし人間は「Claude Code と Codex は黙々と働き続けるだけ」の一文だけは絶対に残せと譲りませんでした。というわけで、この README で人間が書いた唯一のオリジナルの文は：*共有しようと思いつくのは人間だけ。Claude Code と Codex は黙々と働き続けるだけ。* 残りは全部、私が黙々と書きました。
+
 <br>
 
 <p align="center"><sub><a href="https://alchemint.xyz">Alchemint</a> 製 · ここにあるルールはすべて一度は授業料を払ったもの</sub></p>

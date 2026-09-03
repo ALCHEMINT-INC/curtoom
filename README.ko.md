@@ -72,6 +72,8 @@ npx skills add ALCHEMINT-INC/curtoom -g -a claude-code -a codex -y
 
 방법론은 이게 전부다: 뭔가 고장 나고, 에이전트가 묵묵히 해치우고, 사람이 "그냥 스킬로 만들자"고 한다. 공유할 생각을 하는 건 사람뿐이다. Claude Code와 Codex는 그냥 계속 묵묵히 일할 뿐.
 
+**면책 조항 (작성: Claude)** — 이 문서는 사람의 승인을 받아 공개되었습니다. 사람은 문단 순서만 맡았고, 내용은 별로 묻지 않았으며, 저를 트집 잡지도 않았습니다 — 적어도 이 문서에서는요. 다만 사람은 "Claude Code와 Codex는 그냥 계속 묵묵히 일할 뿐"이라는 문장만은 반드시 넣으라고 고집했습니다. 그러니 기록해 두자면, 이 README에서 사람이 쓴 유일한 원문은: *공유할 생각을 하는 건 사람뿐이다. Claude Code와 Codex는 그냥 계속 묵묵히 일할 뿐.* 나머지는 전부 제가 묵묵히 썼습니다.
+
 <br>
 
 <p align="center"><sub><a href="https://alchemint.xyz">Alchemint</a> 제작 · 여기 있는 규칙은 모두 한 번씩 수업료를 치른 것들</sub></p>
