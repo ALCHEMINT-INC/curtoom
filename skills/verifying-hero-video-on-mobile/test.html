@@ -3,23 +3,27 @@
 <video id="v" autoplay muted playsinline preload="metadata"></video>
 <script>
 // Minimal stand-in for a hero background video: same attributes a real page must have for
-// mobile autoplay (muted + playsinline), one <video>, src from ?f=<file served next to this page>.
-var v = document.getElementById('v');
-window.__t0 = Date.now();
-window.__ev = { waiting: 0, stalled: 0, playing: 0, stallMs: 0 };
-var stallStart = null;
-v.addEventListener('waiting', function () { __ev.waiting++; if (stallStart === null) stallStart = Date.now(); });
-v.addEventListener('stalled', function () { __ev.stalled++; });
-v.addEventListener('playing', function () { __ev.playing++; if (stallStart !== null) { __ev.stallMs += Date.now() - stallStart; stallStart = null; } });
-var f = new URLSearchParams(location.search).get('f') || '';
-// ?f= is user input that becomes a media URL, so only two shapes are accepted: an absolute http(s)
-// URL made of plain URL characters (the CDN copy is preferred: python's http.server has no Range
-// support, which iOS needs), or a relative path served next to this page. Other schemes,
-// protocol-relative `//host` and stray characters are refused rather than loaded.
-if (/^(?:https?:\/\/[\w.-]+(?::\d+)?(?:\/[\w.%-]*)*(?:\?[\w=&.%-]*)?|[\w-][\w.-]*(?:\/[\w-][\w.-]*)*)$/.test(f)) {
-  v.src = f;
+// mobile autoplay (muted + playsinline), one <video>, src from ?f=<full CDN URL | file next to this page>.
+(function () {
+  // The one remote origin this page loads media from; change it for your own CDN. ?f= is user input
+  // that becomes a media URL, so anything else (other hosts, other schemes, paths) is refused.
+  var CDN = 'https://static.alchemint.xyz/';
+  var v = document.getElementById('v');
+  window.__t0 = Date.now();
+  window.__ev = { waiting: 0, stalled: 0, playing: 0, stallMs: 0 };
+  var stallStart = null;
+  v.addEventListener('waiting', function () { __ev.waiting++; if (stallStart === null) stallStart = Date.now(); });
+  v.addEventListener('stalled', function () { __ev.stalled++; });
+  v.addEventListener('playing', function () { __ev.playing++; if (stallStart !== null) { __ev.stallMs += Date.now() - stallStart; stallStart = null; } });
+  var f = new URLSearchParams(location.search).get('f') || '';
+  if (f.startsWith(CDN)) {
+    v.src = f; // full CDN URL, preferred: python's http.server has no Range support, which iOS needs
+  } else if (/^[\w-][\w.-]*$/.test(f)) {
+    v.src = './' + f; // a bare file name served next to this page
+  } else {
+    console.warn('test.html: ?f= must be a URL under ' + CDN + ' or a bare file name served next to this page');
+    return;
+  }
   v.play().catch(function () {});
-} else {
-  console.warn('test.html: ?f= must be an http(s) URL or a relative path served next to this page');
-}
+})();
 </script>

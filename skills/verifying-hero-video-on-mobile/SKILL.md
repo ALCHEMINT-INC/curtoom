@@ -28,7 +28,7 @@ description: 當網頁的背景／hero <video> 要在手機上自動播放而且
 ## 第 1 層：throttle 測試台（約 2 分鐘，問過才做）
 
 chrome-devtools MCP：`new_page` → `emulate`（`viewport: "390x844x3,mobile,touch"`、`networkConditions: "Fast 4G"`）→ `navigate_page` → `evaluate_script` 貼 `sample-playback.js` 取樣 30 秒。
-- 本機：`python3 -m http.server 8765` 服務本目錄，開 `test.html?f=<CDN 上的完整 URL>`（python 的 http.server 不支援 Range，影片本體一律指 CDN）。
+- 本機：`python3 -m http.server 8765` 服務本目錄，開 `test.html?f=<CDN 上的完整 URL>`（python 的 http.server 不支援 Range，影片本體一律指 CDN）。`?f=` 只收檔頭 `CDN` 常數那個 origin 底下的網址、或同目錄的純檔名，其他一律拒載（換 CDN 就改那一行）。
 - 生產：直接開線上頁；隨機抽片的頁面用 `navigate_page` 的 `initScript` 覆寫 `Math.random`（照權重算常數）強制抽目標片，同時看可見與預載那兩顆 `<video>`。
 
 **順播 ＝ 每 3 秒 `t` 前進 3.00、`ready` 穩 4、`waiting` 只有開頭一次。** 頁面要在前景，自己 `new_page` 自己 `close_page`。
