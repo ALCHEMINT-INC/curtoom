@@ -12,6 +12,14 @@ v.addEventListener('waiting', function () { __ev.waiting++; if (stallStart === n
 v.addEventListener('stalled', function () { __ev.stalled++; });
 v.addEventListener('playing', function () { __ev.playing++; if (stallStart !== null) { __ev.stallMs += Date.now() - stallStart; stallStart = null; } });
 var f = new URLSearchParams(location.search).get('f') || '';
-v.src = /^https?:\/\//.test(f) ? f : '/' + f; // absolute CDN URL preferred: python http.server has no Range support, which iOS needs
-v.play().catch(function () {});
+// ?f= is user input that becomes a media URL, so only two shapes are accepted: an absolute http(s)
+// URL made of plain URL characters (the CDN copy is preferred: python's http.server has no Range
+// support, which iOS needs), or a relative path served next to this page. Other schemes,
+// protocol-relative `//host` and stray characters are refused rather than loaded.
+if (/^(?:https?:\/\/[\w.-]+(?::\d+)?(?:\/[\w.%-]*)*(?:\?[\w=&.%-]*)?|[\w-][\w.-]*(?:\/[\w-][\w.-]*)*)$/.test(f)) {
+  v.src = f;
+  v.play().catch(function () {});
+} else {
+  console.warn('test.html: ?f= must be an http(s) URL or a relative path served next to this page');
+}
 </script>
